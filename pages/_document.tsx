@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 // pages/_document.js
 
 import Document, { Html, Head, Main, NextScript } from "next/document";

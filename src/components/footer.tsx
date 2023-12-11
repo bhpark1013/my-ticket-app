@@ -1,6 +1,7 @@
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/router";
+import { JSX, SVGProps } from "react";
 
 export const Footer = () => {
   const router = useRouter();
@@ -31,7 +32,9 @@ export const Footer = () => {
   );
 };
 
-export function LocateIcon(props) {
+export function LocateIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -54,7 +57,9 @@ export function LocateIcon(props) {
   );
 }
 
-export function CalendarIcon(props) {
+export function CalendarIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -76,7 +81,9 @@ export function CalendarIcon(props) {
   );
 }
 
-export function MenuIcon(props) {
+export function MenuIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -97,7 +104,9 @@ export function MenuIcon(props) {
   );
 }
 
-export function ArrowRightIcon(props) {
+export function ArrowRightIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -117,7 +126,9 @@ export function ArrowRightIcon(props) {
   );
 }
 
-export function HomeIcon(props) {
+export function HomeIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
