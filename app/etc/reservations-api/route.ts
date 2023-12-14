@@ -1,6 +1,7 @@
 import { sql } from "@vercel/postgres";
+import { NextResponse } from "next/server";
 
-export async function findReserve() {
+async function findReserve() {
   return sql`select reservation.id,gym_time.start_datetime, gym.name, gym.coordinate_x as x, 
   gym.coordinate_y as y
    from reservation join gym_time on gym_time.id = reservation.gym_time_id
@@ -9,5 +10,5 @@ export async function findReserve() {
 
 export async function GET(request: Request) {
   const res = await findReserve();
-  return Response.json({ res });
+  return NextResponse.json({ res });
 }

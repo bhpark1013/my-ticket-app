@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+import { NextResponse } from "next/server";
 
 const fetchReservationInfo = (reservationId: number) =>
   sql`select * from reservation where id = ${reservationId}`;
@@ -8,5 +9,5 @@ export async function GET(request: Request) {
   const id = searchParams.get("id");
   const res = await fetchReservationInfo(Number(id));
 
-  return Response.json({ res });
+  return NextResponse.json({ res });
 }

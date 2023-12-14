@@ -12,6 +12,7 @@ import {
   Tr,
   Text,
   Box,
+  HStack,
 } from "@chakra-ui/react";
 import { sql } from "@vercel/postgres";
 import dayjs from "dayjs";
@@ -41,7 +42,7 @@ const PlaceTimeReservation = ({
       x: number;
       y: number;
     }[]
-  >([]);
+  >();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -65,25 +66,31 @@ const PlaceTimeReservation = ({
             </Tr>
           </Thead>
           <Tbody>
-            {reservations.length > 0
-              ? reservations.map((reservation) => (
-                  <Tr key={reservation.id}>
-                    <Td h="70px" fontSize={"30px"}>
-                      {dayjs(reservation.start_datetime).format(
-                        "YY년 MM월 DD일 HH:mm"
-                      )}
-                    </Td>
-                    <Td fontSize={"30px"}>{`${reservation.name}`}</Td>
-                    <Td>
-                      <Link
-                        href={`/etc/map?x=${reservation.x}&y=${reservation.y}&name=${reservation.name}`}
-                      >
-                        <Button>지도</Button>
-                      </Link>
-                    </Td>
-                  </Tr>
-                ))
-              : []}
+            {!reservations ? (
+              <HStack justifyContent={"center"}>
+                <Text>예약 내역이 없습니다.</Text>
+              </HStack>
+            ) : reservations.length > 0 ? (
+              reservations.map((reservation) => (
+                <Tr key={reservation.id}>
+                  <Td h="70px" fontSize={"30px"}>
+                    {dayjs(reservation.start_datetime).format(
+                      "YY년 MM월 DD일 HH:mm"
+                    )}
+                  </Td>
+                  <Td fontSize={"30px"}>{`${reservation.name}`}</Td>
+                  <Td>
+                    <Link
+                      href={`/etc/map?x=${reservation.x}&y=${reservation.y}&name=${reservation.name}`}
+                    >
+                      <Button>지도</Button>
+                    </Link>
+                  </Td>
+                </Tr>
+              ))
+            ) : (
+              []
+            )}
           </Tbody>
         </Table>
       </TableContainer>

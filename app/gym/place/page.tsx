@@ -10,7 +10,7 @@ import KakaoMap from "./components/kakao-map";
 
 export default async function Place() {
   // const router = useRouter();
-  const places = await fetchPlaces();
+  const places = (await fetchPlaces()) as any;
 
   return (
     <>
