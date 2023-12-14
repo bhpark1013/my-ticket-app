@@ -6,6 +6,7 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 
 const KakaoMap = ({
   places,
+  onClickUrl,
 }: {
   places: {
     id: number;
@@ -13,6 +14,7 @@ const KakaoMap = ({
     coordinate_y: number;
     name: string;
   }[];
+  onClickUrl?: string;
 }) => {
   const router = useRouter();
 
@@ -29,7 +31,9 @@ const KakaoMap = ({
             clickable={true} // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
             key={gym.id}
             onClick={() => {
-              router.push(`/gym/place/${gym.id}`);
+              onClickUrl
+                ? router.push(onClickUrl)
+                : router.push(`/gym/place/${gym.id}`);
             }}
           >
             <Box display={"flex"} color="black" justifyContent={"center"}>

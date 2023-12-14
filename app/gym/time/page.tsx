@@ -9,6 +9,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
+import Link from "next/link";
 
 //TODO: delete time
 const TimeReservation = () => {
@@ -37,7 +38,9 @@ const TimeReservation = () => {
                   {reservation.time}
                 </Td>
                 <Td>
-                  <Button fontSize={"30px"}>찾아보기</Button>
+                  <Link href={`/gym/time/time-place`}>
+                    <Button fontSize={"30px"}>찾아보기</Button>
+                  </Link>
                 </Td>
               </Tr>
             ))}
