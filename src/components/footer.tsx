@@ -1,7 +1,9 @@
+"use client";
+
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "next/router";
 import { JSX, SVGProps } from "react";
+import { useRouter } from "next/navigation";
 
 export const Footer = () => {
   const router = useRouter();
